@@ -1,5 +1,10 @@
+// Init storage
+const storage = new Storage();
+
+const weatherLocation = storage.getLocationData();
+
 // Init weather object
-const weather = new Weather('Hung Hom');
+const weather = new Weather(weatherLocation.city);
 const ui = new UI();
 
 
@@ -22,8 +27,11 @@ document.getElementById('w-changeBtn').addEventListener('click', (e) => {
     if(cityInput.value === '') {
         cityInput.classList.add('is-invalid');
     } else {
+        // Change location
         weather.changeLocation(cityInput.value);
-         // get and display modal
+        // Set location in local storage
+        storage.setLocationData(cityInput.value);
+        // get and display modal
         getWeather();
         // close modal
         $('#locModal').modal('hide');
