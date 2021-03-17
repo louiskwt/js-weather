@@ -13,3 +13,20 @@ function getWeather() {
         })
         .catch(err => console.log(err));
 }
+
+// Change location event
+document.getElementById('w-changeBtn').addEventListener('click', (e) => {
+    const cityInput = document.getElementById('city');
+    // const state = document.getElementById('state').value;
+    // const country = document.getElementById('country').value;
+    if(cityInput.value === '') {
+        cityInput.classList.add('is-invalid');
+    } else {
+        weather.changeLocation(cityInput.value);
+         // get and display modal
+        getWeather();
+        // close modal
+        $('#locModal').modal('hide');
+    }
+    cityInput.value = '';
+})

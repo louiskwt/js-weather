@@ -16,7 +16,6 @@ class UI {
         this.loaction.textContent = weather.name;
         this.desc.textContent = weather.weather[0]["main"];
         this.temp.textContent = Math.floor(weather.main["temp"] - 273.15) + ' C';
-        // work on icon later
         this.icon.setAttribute('src', `http://openweathermap.org/img/wn/${weather.weather[0]["icon"]}.png`);
         this.feelslike.textContent = 'Feels like： ' + Math.floor(weather.main["feels_like"] - 273.15) + " C";
         this.max.textContent = 'High：' + Math.floor(weather.main["temp_min"] - 273.15) + ' C';
